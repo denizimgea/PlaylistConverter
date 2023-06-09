@@ -8,7 +8,7 @@ def get_api_key(client_id: str, client_secret: str) -> dict:
     request_params = {"grant_type": "client_credentials",
                       "client_id": client_id,
                       "client_secret": client_secret}
-    api_request = requests.post(spotify_url, headers=request_header, params=request_params)
+    api_request = requests.request("POST", spotify_url, headers=request_header, params=request_params)
     return json.loads(api_request.text)
 
 
